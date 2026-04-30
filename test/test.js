@@ -84,39 +84,49 @@
 
 
 
+// try{
+//     let saldo = 0
+
+//     if (saldo <= 0) {
+
+//         let erro = geradorErro(703, 'FINANCEIRO', 'Saldo Insuficiente')
+//         throw erro
+//     }
+
+// } catch(erro){
+//      let text = `
+//     <strong>Mensagem:</strong> ${erro.message} <br />
+//     <strong>Código:</strong> ${erro.codigo} <br />
+//     <strong>Tipo:</strong> ${erro.tipo} <br />
+//     `;
+
+//     document.body.innerHTML = text
+
+//     console.log(erro)
+
+// };
+
+// function geradorErro(codigo, tipo, mensagem) {
+//     let erro = new Error(mensagem)
+
+//     erro.codigo = codigo
+//     erro.tipo = tipo
+//     return erro
+// };
 
 
-try{
-    let saldo = 0
-
-    if (saldo <= 0) {
-
-        let erro = geradorErro(703, 'FINANCEIRO', 'Saldo Insuficiente')
-        throw erro
-    }
-
-} catch(erro){
-     let text = `
-    <strong>Mensagem:</strong> ${erro.message} <br />
-    <strong>Código:</strong> ${erro.codigo} <br />
-    <strong>Tipo:</strong> ${erro.tipo} <br />
-    `;
-
-    document.body.innerHTML = text
-
-    console.log(erro)
-
-};
-
-function geradorErro(codigo, tipo, mensagem) {
-    let erro = new Error(mensagem)
-
-    erro.codigo = codigo
-    erro.tipo = tipo
-    return erro
-};
+//-------------------------------------------------------------------------------------------------------------//
 
 
+fetch('https://viacep.com.br/ws/01001000/json/').then(resposta => resposta.json()).then(dados => console.log(dados))
+
+fetch('https://viacep.com.br/ws/01001000/json/')
+.then(resposta => resposta.json()) // converte o JSON para objeto JavaScript e estrai os dados
+.then(dados => console.log(dados)) // exibe os dados extraídos
+.catch(error => console.warn(error))
+
+const consulta = fetch('https://viacep.com.br/ws/01001000/json/')
+console.log(consulta);
 
 
 
