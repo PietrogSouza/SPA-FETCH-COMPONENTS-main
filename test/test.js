@@ -9,6 +9,9 @@
 // }
 
 
+//-------------------------------------------------------------------------------------------------------------//
+
+
 // try{
 // // x = y + 1
 
@@ -23,6 +26,95 @@
 
 //     document.body.innerHTML = text
 // };
+
+
+//-------------------------------------------------------------------------------------------------------------//
+
+
+/*Testando a função carregarComponente*/
+// const componente = document.querySelector('#app')
+
+// const carregarComponente = async (caminho, container) => {
+//     try{
+//         const resposta = await fetch(caminho);
+
+//         if (!resposta.ok) {
+//             throw new Error('Erro ao carregar componente');
+//         }
+
+//         const html = await resposta.text();
+
+//         container.innerHTML = html;
+        
+//     }catch(erro){
+//         console.warn(erro)
+//     }
+// }
+
+// const url = 'c-test.html'
+// carregarComponente(url, componente);
+
+//-------------------------------------------------------------------------------------------------------------//
+
+
+// try{
+//     let idade = -5
+
+//     if (idade < 0) {
+//         let erro = new Error('Idade inválida')
+//         erro.codigo = 1001;
+//         erro.tipo = 'VALIDACAO'
+
+//         throw erro;
+//     }
+// } catch (erro) {
+//     let text = `
+//     <strong>Nome do erro:</strong> ${erro.name} <br />
+//     <strong>Mensagem:</strong> ${erro.message} <br />
+//     <strong>Código:</strong> ${erro.codigo} <br />
+//     <strong>Tipo:</strong> ${erro.tipo} <br />
+//     <strong>Stack:</strong> <span>${erro.stack}</span>
+//     `;
+
+//     document.body.innerHTML = text;
+// };
+
+
+//-------------------------------------------------------------------------------------------------------------//
+
+
+
+
+
+try{
+    let saldo = 0
+
+    if (saldo <= 0) {
+
+        let erro = geradorErro(703, 'FINANCEIRO', 'Saldo Insuficiente')
+        throw erro
+    }
+
+} catch(erro){
+     let text = `
+    <strong>Mensagem:</strong> ${erro.message} <br />
+    <strong>Código:</strong> ${erro.codigo} <br />
+    <strong>Tipo:</strong> ${erro.tipo} <br />
+    `;
+
+    document.body.innerHTML = text
+
+    console.log(erro)
+
+};
+
+function geradorErro(codigo, tipo, mensagem) {
+    let erro = new Error(mensagem)
+
+    erro.codigo = codigo
+    erro.tipo = tipo
+    return erro
+};
 
 
 
